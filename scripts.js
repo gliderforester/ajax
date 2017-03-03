@@ -1,21 +1,17 @@
-function Telefon(marka, cena, kolor, ekran, system) {
-	this.marka=marka;
-	this.cena=cena;
-	this.kolor=kolor;
-	this.ekran=ekran;
-	this.system=system;
+var url = 'http://api.icndb.com/jokes/random';
+var button = document.getElementById('get-joke');
+button.addEventListener('click', function () {
+	getJoke();
+});
+var paragraph = document.getElementById('joke');
 
-}
-Telefon.prototype.printInfo = function() {
-	console.log('Marka telefonu to ' + this.marka + ', kolor to ' + this.kolor + ', a cena to ' + this.cena + ' PLN.');
-}
-Telefon.prototype.techInfo = function() {
-	console.log('Dane techniczne: ekran (' + this.ekran + '"); system operacyjny (' + this.system + ').');
-}
-
-var samsungGS6 = new Telefon('Samsung', 1800, 'czarny', 5.5 , 'Android 6.0');
-var iPhone6S = new Telefon('Apple', 2250, 'srebrny', 5.5, 'iOS 10.0');
-var onePlusone = new Telefon('OnePlus', 1300, 'srebrny', 5.5, 'Android 7.0' );
-
-iPhone6S.printInfo();
-iPhone6S.techInfo();
+function getJoke() {
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url);
+	xhr.addEventListener('load', function () {
+		var response = JSON.parse(xhr.response);
+		paragraph.innerText = response.value.joke;
+	});
+	xhr.send();
+};
+getJoke();
