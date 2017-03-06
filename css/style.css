@@ -1,0 +1,39 @@
+body {
+	background-color: #4C95EB;
+	margin: 0;
+	color: #ffffff;
+	text-align: center;
+	font-family: 'Play', sans-serif;
+	font-size: 30px
+}
+
+h1,
+h2,
+h3 {
+	margin: 30px;
+}
+
+.quote {
+	color: blue;
+}
+
+button {
+	border: #ffffff solid 2px;
+	display: block;
+	padding: 15px 30px;
+	margin: 30px;
+	min-width: 360px;
+	border-radius: 15px;
+	background-color: inherit;
+}
+
+.buttons {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+a {
+	color: inherit;
+}
